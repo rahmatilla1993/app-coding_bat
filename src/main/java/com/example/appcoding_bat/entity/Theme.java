@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
@@ -25,5 +26,5 @@ public class Theme {
      * Bitta mavzu bir nechta dasturlash tilida bo'ladi
      */
     @ManyToMany
-    private List<Language> languages;
+    private Set<Language> languages;
 }

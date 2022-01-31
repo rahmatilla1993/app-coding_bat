@@ -103,16 +103,19 @@ public class TaskService {
 
     public Result editTaskById(Integer id, TaskDTO taskDTO) {
         Optional<Task> optionalTask = taskRepository.findById(id);
-        if (!optionalTask.isPresent()) {
-            return new Result(messageTask.getMessage(), false);
+        if (optionalTask.isPresent()) {
+            Task editTask = optionalTask.get();
+            Result result = addingTask(taskDTO, false, true, id);
+            if(result.isSuccess()){
+                Task task = (Task) result.getObject();
+                editTask.setLanguage(task.getLanguage());
+                editTask.setName(task.getName());
+                editTask.setTheme(task.getTheme());
+                taskRepository.save(editTask);
+                return new Result("Masala o'zgartildi", true);
+            }
+            return result;
         }
-        Task editTask = optionalTask.get();
-        Result result = addingTask(taskDTO, false, true, id);
-        Task task = (Task) result.getObject();
-        editTask.setLanguage(task.getLanguage());
-        editTask.setName(task.getName());
-        editTask.setTheme(task.getTheme());
-        taskRepository.save(editTask);
-        return new Result("Masala o'zgartildi", true);
+        return new Result(messageTask.getMessage(), false);
     }
 }

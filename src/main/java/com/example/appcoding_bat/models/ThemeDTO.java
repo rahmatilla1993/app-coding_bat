@@ -18,5 +18,5 @@ public class ThemeDTO {
     private String name;
 
     @NotNull(message = "Birorta dasturlash tili kiritilmadi")
-    private Set<Integer> languages;
+        private Set<Integer> languages;
 }

@@ -54,7 +54,7 @@ public class ThemeService {
         Theme theme = new Theme();
         if (create && themeRepository.existsByName(themeDTO.getName()) ||
                 edit && themeRepository.existsByIdIsNotAndName(id, themeDTO.getName())) {
-            return new Result("Bunday mavzu bor", true);
+            return new Result("Bunday mavzu bor", false);
         }
         Set<Language> languages = new HashSet<>();
         for (Integer language_id : themeDTO.getLanguages()) {

@@ -87,7 +87,7 @@ public class UserService {
         if (result.isSuccess()) {
             User user = (User) result.getObject();
             userRepository.save(user);
-            return new Result(true, user);
+            return new Result("User qo'shildi",true);
         }
         return result;
     }

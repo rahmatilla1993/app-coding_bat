@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
@@ -15,7 +16,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer user_id;
+    private Integer id;
 
     @Column(nullable = false,unique = true)
     private String userName;
@@ -31,7 +32,7 @@ public class User {
      * Bitta dasturlash tilida bir nechta user masala yechadi
      */
     @ManyToMany
-    private List<Task> tasks;
+    private Set<Task> tasks;
 
     /**
      * Bitta jovob bitta userga tegishli

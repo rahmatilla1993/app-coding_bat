@@ -14,8 +14,9 @@ import java.util.Set;
 @NoArgsConstructor
 public class ThemeDTO {
 
-    @NotNull
+    @NotNull(message = "Mavzu nomi kiritilmadi")
     private String name;
 
+    @NotNull(message = "Birorta dasturlash tili kiritilmadi")
     private Set<Integer> languages;
 }

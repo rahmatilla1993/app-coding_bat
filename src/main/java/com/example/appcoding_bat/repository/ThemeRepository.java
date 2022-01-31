@@ -8,10 +8,10 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface ThemeRepository extends JpaRepository<Theme,Integer> {
+public interface ThemeRepository extends JpaRepository<Theme, Integer> {
 
-    @Query("SELECT theme.* FROM theme_languages JOIN language ON theme_languages.languages_id = language.id " +
-            "JOIN theme ON theme.id = theme_languages.theme_id WHERE language.id = ?1")
+    @Query(value = "SELECT t.* FROM theme_languages JOIN language l ON l.id = theme_languages.languages_id\n" +
+            "    JOIN theme t ON t.id = theme_languages.theme_id WHERE l.id = ?1", nativeQuery = true)
     List<Theme> getAllByLanguageId(Integer id);
 
     boolean existsByName(String name);

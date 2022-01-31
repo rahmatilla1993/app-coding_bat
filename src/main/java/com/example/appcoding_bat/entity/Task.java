@@ -25,4 +25,10 @@ public class Task {
      */
     @ManyToOne
     private Theme theme;
+
+    /**
+     * Bitta dasturlash tilida ko'p topshiriqlar bo'ladi
+     */
+    @ManyToOne
+    private Language language;
 }

@@ -9,8 +9,14 @@ import javax.validation.constraints.NotNull;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class LanguageDTO {
+public class TaskDTO {
 
-    @NotNull(message = "Dasturlash tili kiritilmadi")
+    @NotNull(message = "Topshiriq kiritilmadi")
     private String name;
+
+    @NotNull(message = "Mavzu id si kiritilmadi")
+    private Integer theme_id;
+
+    @NotNull(message = "Dasturlash tili id si kiritilmadi")
+    private Integer language_id;
 }
